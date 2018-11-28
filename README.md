@@ -35,9 +35,22 @@ If tslint finds the snippets of code, it will raise an error for that line of co
 
 ### examples
 
+First you need to add `tslint-ban-snippets` to the `rulesDirectory` property in `tslint.json`:
+
+```json
+{
+    "rulesDirectory": "node_modules/tslint-ban-snippets/dist/lib",
+    "rules": {
+        // tslint rules here...
+    }
+}
+```
+
 Example of how to ban the use of "return void":
 
 ```json
+    "rules": {
+        // other rules here...
         "tsl-ban-snippets": [
             true,
             {
@@ -48,11 +61,14 @@ Example of how to ban the use of "return void":
                 ]
             }
         ]
+    }
 ```
 
 Here is another example, with more options:
 
 ```json
+    "rules": {
+        // other rules here...
         "tsl-ban-snippets": [
             true,
             {
@@ -66,6 +82,7 @@ Here is another example, with more options:
                 ]
             }
         ]
+    }
 ```
 
 For more examples of how to configure, please see [tslint.json](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/tslint.tslint-ban-snippets.json).
