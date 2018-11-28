@@ -60,8 +60,6 @@ class StatementsWalker extends Lint.RuleWalker {
             );
 
             if (bannedCodeFound.length > 0) {
-                console.log('xxx node fail', text);
-
                 this.addFailureAtNode(
                     node.getFirstToken() || node,
                     GeneralRuleUtils.buildFailureString(
