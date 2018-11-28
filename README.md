@@ -27,15 +27,60 @@ examples: "return void reject", "it.only", "debugger".
 npm install -g semantic-release-cli
 ```
 
+## custom tslint rule
+
+The custom rule `tsl-ban-snippets` can be configured with small snippets of code that should NOT be used by developers.
+
+If tslint finds the snippets of code, it will raise an error for that line of code.
+
+### examples
+
+Example of how to ban the use of "return void":
+
+```json
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "snippets": ["return void"]
+                    }
+                ]
+            }
+        ]
+```
+
+Here is another example, with more options:
+
+```json
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "snippets": ["return void"],
+                        "message": "Please do not return void - instead place the return statement on the following line.",
+                        "includePaths": [".ts", ".tsx"],
+                        "excludePaths": ["itest"]
+                    }
+                ]
+            }
+        ]
+```
+
+For more examples of how to configure, please see [tslint.json](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/tslint.tslint-ban-snippets.json).
+
+For working examples, please see the [unit tests](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/test/rules).
+
 ## sites
 
-| site | URL |
-|---|---|
+| site                 | URL                                               |
+| -------------------- | ------------------------------------------------- |
 | source code (github) | https://github.com/mrseanryan/tslint-ban-snippets |
-| github page | https://mrseanryan.github.io/tslint-ban-snippets/ |
-| npm | https://www.npmjs.com/package/tslint-ban-snippets |
+| github page          | https://mrseanryan.github.io/tslint-ban-snippets/ |
+| npm                  | https://www.npmjs.com/package/tslint-ban-snippets |
 
-## developing code in *this* repo
+## developing code in _this_ repo
 
 This project uses `semantic release`, so when committing its best to use this script:
 

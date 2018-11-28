@@ -7,8 +7,12 @@
 * [x] add change log (already in github!)
 
 ## tslint
-* [ ] add unit tests
-* [ ] implement the custom rule
+* [x] add unit tests
+* [x] implement the custom rule
 * [ ] update readme
+
+* [ ] fix code coverage
+- run tslint --test as a jest unit test - by enclosing this code:
+https://github.com/palantir/tslint/blob/master/src/test.ts
 
 * [ ] pub, consume
