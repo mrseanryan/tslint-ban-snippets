@@ -1,0 +1,22 @@
+{
+    "rulesDirectory": "./dist/lib",
+    "rules": {
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "snippets": ["return void reject", "return void resolve"],
+                        "message": "Please do not return void - instead place the return statement on the following line.",
+                        "includePaths": [".ts", ".tsx"]
+                    },
+                    {
+                        "snippets": ["browser.debug", "debugger"],
+                        "message": "Please remove breakpoint statements.",
+                        "includePaths": [".ts", ".tsx", ".spec.ts", ".spec.tsx", ".ispec.ts", ".ispec.tsx"]
+                    }
+                ]
+            }
+        ]
+    }
+}

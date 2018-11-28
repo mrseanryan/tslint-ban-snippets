@@ -1,0 +1,18 @@
+{
+    "rulesDirectory": "../../../../dist/lib",
+    "rules": {
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "snippets": ["return void reject", "return void resolve"],
+                        "message": "Please do not return void - instead place the return statement on the following line.",
+                        "includePaths": [".ts", ".tsx"],
+                        "excludePaths": ["excluded"]
+                    }
+                ]
+            }
+        ]
+    }
+}

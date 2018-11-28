@@ -1,6 +1,7 @@
 {
   "extends": [
     "tslint-config-standard",
-    "tslint-config-prettier"
+    "tslint-config-prettier",
+    "./tslint.tslint-ban-snippets.json"
   ]
 }

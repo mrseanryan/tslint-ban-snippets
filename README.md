@@ -27,6 +27,14 @@ examples: "return void reject", "it.only", "debugger".
 npm install -g semantic-release-cli
 ```
 
+## sites
+
+| site | URL |
+|---|---|
+| source code (github) | https://github.com/mrseanryan/tslint-ban-snippets |
+| github page | https://mrseanryan.github.io/tslint-ban-snippets/ |
+| npm | https://www.npmjs.com/package/tslint-ban-snippets |
+
 ## developing code in *this* repo
 
 This project uses `semantic release`, so when committing its best to use this script:
