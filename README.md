@@ -12,4 +12,4 @@ npm install -g semantic-release-cli
 
 ## ORIGINAL readme
 
-[set here](./readme.original.md)
+[see here](./readme.original.md)
