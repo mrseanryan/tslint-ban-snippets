@@ -10,6 +10,12 @@
                         "message": "Please do not return void - instead place the return statement on the following line.",
                         "includePaths": [".ts", ".tsx"],
                         "excludePaths": ["excluded"]
+                    },
+                    {
+                        "snippets": ["debugger", "browser.debug"],
+                        "message": "Remove debug breakpoints.",
+                        "includePaths": [".ts", ".tsx"],
+                        "excludePaths": ["excluded"]
                     }
                 ]
             }

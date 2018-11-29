@@ -99,10 +99,26 @@ For working examples, please see the [unit tests](https://github.com/mrseanryan/
 
 ## developing code in _this_ repo
 
+Any pushes to `master` will try to publish to npm (if travis build succeeds).
+So it's best to first develop on a feature branch - named like `feature/my-feature`, and then when it has a green build, merge it master.
+
 This project uses `semantic release`, so when committing its best to use this script:
 
 `./commit.sh`
 
+### merging to master
+
+merging a feature branch into master: (after the bulid is green!)
+
+```
+git checkout master
+git fetch
+git pull
+git merge feature/my-feature
+git push
+```
+
+### releasing (from master branch)
 To release, simply push to github. This will automatically run builds, generate release notes on github, and release to npm!
 
 `git push`

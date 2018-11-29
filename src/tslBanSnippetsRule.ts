@@ -3,9 +3,8 @@ import * as ts from 'typescript';
 
 import { ConfigFactory } from './config/ConfigFactory';
 import { BannedSnippet, BanSnippetsRuleConfig } from './model/BanSnippetsRuleConfig';
+import { BAN_SNIPPETS_RULE_ID } from './ruleIds';
 import { GeneralRuleUtils } from './utils/GeneralRuleUtils';
-
-export const BAN_SNIPPETS_RULE_ID = 'tsl-ban-snippets';
 
 export class Rule extends Lint.Rules.AbstractRule {
     apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
@@ -60,11 +59,13 @@ class StatementsWalker extends Lint.RuleWalker {
             );
 
             if (bannedCodeFound.length > 0) {
+                const failureNode = node.getFirstToken() || node;
+
                 this.addFailureAtNode(
-                    node.getFirstToken() || node,
+                    failureNode,
                     GeneralRuleUtils.buildFailureString(
                         banned.message ||
-                            `Do not use banned code '${bannedCodeFound.join("' or '")}'`,
+                            `Do not use banned code '${bannedCodeFound.join("' or '")}'.`,
                         BAN_SNIPPETS_RULE_ID
                     )
                 );

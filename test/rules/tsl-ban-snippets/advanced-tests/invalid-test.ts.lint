@@ -12,5 +12,17 @@ class MyClass
         ~~~~~~ [Please do not return void - instead place the return statement on the following line. (tsl-ban-snippets)]
             return void reject("error!");
         })
+
+        const aBinaryExpression = 100 + 200;
+
+        aCallExpression();
+    }
+
+    funWithBreakpoints() {
+        debugger;
+        ~~~~~~~~ [Remove debug breakpoints. (tsl-ban-snippets)]
+
+        browser.debug();
+        ~~~~~~~ [Remove debug breakpoints. (tsl-ban-snippets)]
     }
 }
