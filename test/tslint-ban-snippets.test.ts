@@ -1,13 +1,11 @@
 import * as fs from 'fs';
 import * as glob from 'glob';
 import * as path from 'path';
-import { getSourceFile, IOptions } from 'tslint';
+import { IOptions } from 'tslint';
 import { consoleTestResultHandler, runTest } from 'tslint/lib/test';
-import * as ts from 'typescript';
 
 import { BAN_SNIPPETS_RULE_ID, Rule as BanSnippetsRule } from '../src/tslBanSnippetsRule';
 import { getSourceFileFromPath } from './rules/testUtils/tslint-palantir/utils';
-import { runTestWithoutCompiling } from './rules/testUtils/TslintRuleTestRunner';
 
 class ConsoleLogger {
     log(m: any) {
