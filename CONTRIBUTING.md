@@ -27,7 +27,7 @@ npm install -g semantic-release-cli
 ### use a feature branch
 
 Any pushes to `master` will try to publish to npm (if travis build succeeds).
-So it's best to first develop on a feature branch - named like `feature/my-feature`, and then when it has a green build, merge it master.
+So it's best to first develop on a feature branch - named like `feature/my-feature`, and then when it has a green build, merge it to master.
 
 This project uses `semantic release`, so when committing its best to use this script:
 
