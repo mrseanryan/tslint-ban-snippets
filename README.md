@@ -123,7 +123,7 @@ For working examples, please see the [unit tests](https://github.com/mrseanryan/
 | github page          | https://mrseanryan.github.io/tslint-ban-snippets/ |
 | npm                  | https://www.npmjs.com/package/tslint-ban-snippets |
 
-## developing code in _this_ repo
+## developing code in _this_ repository
 
 ### dependencies
 
@@ -144,7 +144,7 @@ This project uses `semantic release`, so when committing its best to use this sc
 
 ### merging to master
 
-merging a feature branch into master: (after the bulid is green!)
+merging a feature branch into master: (after the build is green!)
 
 ```
 git checkout master
@@ -161,7 +161,7 @@ To release, simply push to github. This will automatically run builds, generate 
 
 ## origin
 
-This project is based on the excellent seeder project [typescript-library-starter](https://github.com/alexjoverm/typescript-library-starter)
+This project is based on the excellent seeder project [typescript-library-starter](https://github.com/alexjoverm/typescript-library-starter).
 
 The project was started to avoid having to repeatedly fix similar coding issues in large TypeScript code bases.
 
