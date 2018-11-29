@@ -18,3 +18,7 @@ https://github.com/palantir/tslint/blob/master/src/test.ts
 * [ ] remove the dummy class, test
 
 * [ ] pub, consume
+
+## future
+
+* [ ] setup a 'test your tslint custom rules' project: tslint-custom-rules-with-jest
