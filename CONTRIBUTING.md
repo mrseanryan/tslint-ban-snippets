@@ -1,4 +1,4 @@
-We're really glad you're reading this, because we need volunteer developers to help this project come to fruition. 👏
+# Contributing to tslint-ban-snippets
 
 ## Instructions
 
@@ -39,8 +39,7 @@ merging a feature branch into master: (after the build is green!)
 
 ```
 git checkout master
-git fetch
-git pull
+git fetch && git pull
 git merge feature/my-feature
 git push
 ```
