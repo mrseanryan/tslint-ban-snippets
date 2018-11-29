@@ -3,6 +3,7 @@ import * as glob from 'glob';
 import * as path from 'path';
 import { IOptions } from 'tslint';
 import { consoleTestResultHandler, runTest } from 'tslint/lib/test';
+import * as parse from 'tslint/lib/verify/parse';
 
 import { BAN_SNIPPETS_RULE_ID, Rule as BanSnippetsRule } from '../src/tslBanSnippetsRule';
 import { getSourceFileFromPath } from './rules/testUtils/tslint-palantir/utils';
@@ -50,13 +51,13 @@ describe('tslint-ban-snippets test', () => {
 
                 const sourceFile = getSourceFileFromPath(fileToLint);
 
-                // const ruleFailures =
-                rule.apply(sourceFile);
+                const ruleFailures = rule.apply(sourceFile);
 
-                // TODO xxx
-                // const expectedRuleFailures = 0;
+                // perform a crude check - the tslint test runner already performs detailed checks
+                const errorsFromMarkup = parse.parseErrorsFromMarkup(sourceFile.text);
 
-                // expect(ruleFailures.length).toBe(expectedRuleFailures);
+                const expectedRuleFailures = errorsFromMarkup.length;
+                expect(ruleFailures.length).toBe(expectedRuleFailures);
             });
         }
     }
