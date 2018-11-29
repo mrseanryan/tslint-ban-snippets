@@ -37,6 +37,13 @@ This project uses `semantic release`, so when committing its best to use this sc
 
 merging a feature branch into master: (after the build is green!)
 
+#### via github site (recommended)
+
+- create pull request for the feature branch
+- merge the pull request into master
+
+#### via command line (not recommended, as then need to delete branches)
+
 ```
 git checkout master
 git fetch && git pull
