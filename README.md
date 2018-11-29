@@ -4,7 +4,9 @@ A custom tslint rule to ban configurable lists of code snippets.
 
 examples: "return void reject", "it.only", "debugger".
 
-## status: !IN DEVELOPMENT!
+## status - stable
+
+tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes (Linux, Mac, Windows) for at least one major product.
 
 [![Travis](https://img.shields.io/travis/mrseanryan/tslint-ban-snippets.svg)](https://travis-ci.org/mrseanryan/tslint-ban-snippets)
 [![Coveralls](https://img.shields.io/coveralls/mrseanryan/tslint-ban-snippets.svg)](https://coveralls.io/github/mrseanryan/tslint-ban-snippets)
@@ -23,9 +25,7 @@ examples: "return void reject", "it.only", "debugger".
 
 ## dependencies
 
-```
-npm install -g semantic-release-cli
-```
+No special dependencies - just `TypeScript` and of course `tslint`.
 
 ## custom tslint rule
 
@@ -33,9 +33,29 @@ The custom rule `tsl-ban-snippets` can be configured with small snippets of code
 
 If tslint finds the snippets of code, it will raise an error for that line of code.
 
-### examples
+In this way, a code base can be kept clean of unwanted coding practices.
 
-First you need to add `tslint-ban-snippets` to the `rulesDirectory` property in `tslint.json`:
+### note: the rule name
+
+The rule name is `tsl-ban-snippets` to avoid using the prefix `tslint-` which was found to be problematic when other `tslint` libraries are in use.
+
+### note: comparison to the standard `ban` rule
+
+There is standard tslint rule named `ban`. However its scope is quite limited - the `tsl-ban-snippets` rule applies to any statement in a TypeScript file, and so can be configured to detect most unwanted code snippets.
+
+## usage
+
+### 1 Install via npm (or yarn) into your TypeScript project
+
+```
+npm install tslint-ban-snippets
+```
+
+### 2 Configure tslint to pick up the custom rule
+
+Edit your `tslint.json` to have an entry `"rulesDirectory"` that points to tslint-ban-snippets.
+
+Normally this would be like:
 
 ```json
 {
@@ -45,6 +65,12 @@ First you need to add `tslint-ban-snippets` to the `rulesDirectory` property in 
     }
 }
 ```
+
+### 3 Configure the custom rule `tsl-ban-snippets`
+
+Now you can configure the custom rule, to ban whatever code snippets you do NOT want developers to use.
+
+#### examples
 
 Example of how to ban the use of "return void":
 
@@ -98,6 +124,16 @@ For working examples, please see the [unit tests](https://github.com/mrseanryan/
 | npm                  | https://www.npmjs.com/package/tslint-ban-snippets |
 
 ## developing code in _this_ repo
+
+### dependencies
+
+We use `semantic-release` to manage versioning and the build process.
+
+```
+npm install -g semantic-release-cli
+```
+
+### use a feature branch
 
 Any pushes to `master` will try to publish to npm (if travis build succeeds).
 So it's best to first develop on a feature branch - named like `feature/my-feature`, and then when it has a green build, merge it master.
