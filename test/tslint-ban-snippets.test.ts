@@ -27,40 +27,51 @@ describe('tslint-ban-snippets test', () => {
 
     const testDirectories = glob.sync('test/rules/**/tslint.json').map(path.dirname);
 
-    for (const testDirectory of testDirectories) {
-        it(`should run tests at ${testDirectory} using tslint test runner (NO code coverage!)`, () => {
-            const result = runTest(testDirectory);
+    describe('standard tslint test runner (NO code coverage!)', () => {
+        for (const testDirectory of testDirectories) {
+            it(`should run tests at ${testDirectory}`, () => {
+                const result = runTest(testDirectory);
 
-            const isOk = consoleTestResultHandler(result, new ConsoleLogger());
+                const isOk = consoleTestResultHandler(result, new ConsoleLogger());
 
-            expect(isOk).toBeTruthy();
-        });
-    }
-
-    for (const testDirectory of testDirectories) {
-        const filesToLint = glob.sync(path.join(testDirectory, `**/*${MARKUP_FILE_EXTENSION}`));
-
-        for (const fileToLint of filesToLint) {
-            it('should run custom rule code using custom test runner WITH code coverage', () => {
-                const tsLintConfig = readTslintConfigFromDirectory(testDirectory);
-
-                const optionsForRule = getOptionsForRule(BAN_SNIPPETS_RULE_ID, tsLintConfig);
-
-                const rule = new BanSnippetsRule(optionsForRule);
-                expect(rule).toBeTruthy();
-
-                const sourceFile = getSourceFileFromPath(fileToLint);
-
-                const ruleFailures = rule.apply(sourceFile);
-
-                // perform a crude check - the tslint test runner already performs detailed checks
-                const errorsFromMarkup = parse.parseErrorsFromMarkup(sourceFile.text);
-
-                const expectedRuleFailures = errorsFromMarkup.length;
-                expect(ruleFailures.length).toBe(expectedRuleFailures);
+                expect(isOk).toBeTruthy();
             });
         }
-    }
+    });
+
+    describe('custom tslint test runner (WITH code coverage, but cruder assertions)', () => {
+        for (const testDirectory of testDirectories) {
+            describe(`tests at ${testDirectory}`, () => {
+                const filesToLint = glob.sync(
+                    path.join(testDirectory, `**/*${MARKUP_FILE_EXTENSION}`)
+                );
+
+                for (const fileToLint of filesToLint) {
+                    it(`should run custom rule code on file ${fileToLint}`, () => {
+                        const tsLintConfig = readTslintConfigFromDirectory(testDirectory);
+
+                        const optionsForRule = getOptionsForRule(
+                            BAN_SNIPPETS_RULE_ID,
+                            tsLintConfig
+                        );
+
+                        const rule = new BanSnippetsRule(optionsForRule);
+                        expect(rule).toBeTruthy();
+
+                        const sourceFile = getSourceFileFromPath(fileToLint);
+
+                        const ruleFailures = rule.apply(sourceFile);
+
+                        // perform a crude check - the tslint test runner already performs detailed checks
+                        const errorsFromMarkup = parse.parseErrorsFromMarkup(sourceFile.text);
+
+                        const expectedRuleFailures = errorsFromMarkup.length;
+                        expect(ruleFailures.length).toBe(expectedRuleFailures);
+                    });
+                }
+            });
+        }
+    });
 });
 
 function readTslintConfigFromDirectory(testDirectory: string): any {
