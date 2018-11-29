@@ -125,39 +125,7 @@ For working examples, please see the [unit tests](https://github.com/mrseanryan/
 
 ## developing code in _this_ repository
 
-### dependencies
-
-We use `semantic-release` to manage versioning and the build process.
-
-```
-npm install -g semantic-release-cli
-```
-
-### use a feature branch
-
-Any pushes to `master` will try to publish to npm (if travis build succeeds).
-So it's best to first develop on a feature branch - named like `feature/my-feature`, and then when it has a green build, merge it master.
-
-This project uses `semantic release`, so when committing its best to use this script:
-
-`./commit.sh`
-
-### merging to master
-
-merging a feature branch into master: (after the build is green!)
-
-```
-git checkout master
-git fetch
-git pull
-git merge feature/my-feature
-git push
-```
-
-### releasing (from master branch)
-To release, simply push to github. This will automatically run builds, generate release notes on github, and release to npm!
-
-`git push`
+see the [contributing readme](CONTRIBUTING.md).
 
 ## origin
 
@@ -165,7 +133,7 @@ This project is based on the excellent seeder project [typescript-library-starte
 
 The project was started to avoid having to repeatedly fix similar coding issues in large TypeScript code bases.
 
-### ORIGINAL readme
+### ORIGINAL readme (from the seeder project)
 
 [see here](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/readme.original.md)
 
