@@ -1,5 +1,5 @@
 import { BanSnippetsRuleConfig } from '../model/BanSnippetsRuleConfig';
-import { BAN_SNIPPETS_RULE_ID } from '../tslBanSnippetsRule';
+import { BAN_SNIPPETS_RULE_ID } from '../ruleIds';
 
 export namespace ConfigFactory {
     export function createForBanSnippetsRule(options: any): BanSnippetsRuleConfig {
