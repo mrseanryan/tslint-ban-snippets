@@ -1,4 +1,5 @@
 describe("someTestSuite - OK", () => {
+~~~~~~~~ [Do not skip tests. (tsl-ban-snippets)]
     it("someTest - OK", () => {
         // test code here
     });
