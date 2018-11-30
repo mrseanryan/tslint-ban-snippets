@@ -22,7 +22,7 @@ class ConsoleLogger {
 
 const MARKUP_FILE_EXTENSION = '.lint';
 
-describe('tslint-ban-snippets test', () => {
+describe('tslint-ban-snippets tests', () => {
     it('works if true is truthy', () => {
         expect(true).toBeTruthy();
     });
@@ -67,7 +67,7 @@ describe('tslint-ban-snippets test', () => {
                         // perform a crude check - the tslint test runner already performs detailed checks
                         const errorsFromMarkup = parse.parseErrorsFromMarkup(sourceFile.text);
 
-                        // 'debug statement' and 'call expression' can double up:
+                        // "debug statement" and "call expression" can double up:
                         expect(ruleFailures.length).toBeGreaterThanOrEqual(errorsFromMarkup.length);
                     });
                 }
