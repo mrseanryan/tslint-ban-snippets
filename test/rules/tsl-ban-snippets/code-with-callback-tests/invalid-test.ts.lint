@@ -1,0 +1,31 @@
+function makeRequest(jobId: string, callback, errorCallback) {
+        request.post(
+        ~~~~~~~ [Do not use banned code 'debugger' or 'browser.debug'. (tsl-ban-snippets)]
+        ~~~~~~~ [Do not use banned code 'return void'. (tsl-ban-snippets)]
+            environmentConfig.platform.projectsApiUrl,
+            {
+                body: `blah`
+            },
+            (error, httpResponse, body) => {
+                if (error) {
+                    errorCallback(error);
+
+                    browser.debug();
+                    ~~~~~~~ [Do not use banned code 'browser.debug'. (tsl-ban-snippets)]
+
+                    return;
+                }
+                if (httpResponse.statusCode === 200) {
+                    debugger;
+                    ~~~~~~~~ [Do not use banned code 'debugger'. (tsl-ban-snippets)]
+                } else {
+                    return void errorCallback(
+                    ~~~~~~ [Do not use banned code 'return void'. (tsl-ban-snippets)]
+                        `Unexpected statuscode ${
+                            httpResponse.statusCode
+                        } returned.`
+                    );
+                }
+            }
+        );
+    }
