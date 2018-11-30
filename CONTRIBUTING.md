@@ -24,6 +24,8 @@ We use `semantic-release` to manage versioning and the build process.
 npm install -g semantic-release-cli
 ```
 
+We use [yarn](https://yarnpkg.com/lang/en/docs/install) because we like it, and to avoid [an issue](https://github.com/commitizen/cz-cli/issues/10) with `commitizen` on Windows.
+
 ### use a feature branch
 
 Any pushes to `master` will try to publish to npm (if travis build succeeds).
@@ -32,6 +34,16 @@ So it's best to first develop on a feature branch - named like `feature/my-featu
 This project uses `semantic release`, so when committing its best to use this script:
 
 `./commit.sh`
+
+### running unit tests
+
+locally: (minimal build)
+
+`yarn build-and-test`
+
+before pushing: (saves time waiting for a failed build)
+
+`yarn test:prod`
 
 ### merging to master (will create a release!)
 
