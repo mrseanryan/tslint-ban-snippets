@@ -1,6 +1,6 @@
 {
   "name": "tslint-ban-snippets",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantically-released",
   "description": "A custom tslint rule to ban configurable lists of code snippets.",
   "keywords": [
     "tslint",

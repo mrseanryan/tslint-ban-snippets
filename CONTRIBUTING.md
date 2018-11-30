@@ -33,7 +33,7 @@ This project uses `semantic release`, so when committing its best to use this sc
 
 `./commit.sh`
 
-### merging to master
+### merging to master (will create a release!)
 
 merging a feature branch into master: (after the build is green!)
 
