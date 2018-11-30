@@ -1,1 +1,1 @@
-export * from './tslBanSnippetsRule';
+export * from "./tslBanSnippetsRule";

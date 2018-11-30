@@ -1,12 +1,12 @@
-import { BanSnippetsRuleConfig } from '../model/BanSnippetsRuleConfig';
-import { BAN_SNIPPETS_RULE_ID } from '../ruleIds';
+import { BanSnippetsRuleConfig } from "../model/BanSnippetsRuleConfig";
+import { BAN_SNIPPETS_RULE_ID } from "../ruleIds";
 
 export namespace ConfigFactory {
     export function createForBanSnippetsRule(options: any): BanSnippetsRuleConfig {
         const config = createFromArguments<BanSnippetsRuleConfig>(options, BAN_SNIPPETS_RULE_ID);
 
-        validate(config, 'banned', BAN_SNIPPETS_RULE_ID);
-        config.banned.forEach(b => validate(b, 'snippets', BAN_SNIPPETS_RULE_ID));
+        validate(config, "banned", BAN_SNIPPETS_RULE_ID);
+        config.banned.forEach(b => validate(b, "snippets", BAN_SNIPPETS_RULE_ID));
 
         return config;
     }

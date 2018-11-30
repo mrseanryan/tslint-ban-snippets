@@ -1,14 +1,13 @@
-import * as fs from 'fs';
-import * as glob from 'glob';
-import * as path from 'path';
-import { IOptions } from 'tslint';
-import { consoleTestResultHandler, runTest } from 'tslint/lib/test';
-import { LintError } from 'tslint/lib/verify/lintError';
-import * as parse from 'tslint/lib/verify/parse';
+import * as fs from "fs";
+import * as glob from "glob";
+import * as path from "path";
+import { IOptions } from "tslint";
+import { consoleTestResultHandler, runTest } from "tslint/lib/test";
+import * as parse from "tslint/lib/verify/parse";
 
-import { BAN_SNIPPETS_RULE_ID } from '../src/ruleIds';
-import { Rule as BanSnippetsRule } from '../src/tslint-ban-snippets';
-import { getSourceFileFromPath } from './rules/testUtils/tslint-palantir/utils';
+import { BAN_SNIPPETS_RULE_ID } from "../src/ruleIds";
+import { Rule as BanSnippetsRule } from "../src/tslint-ban-snippets";
+import { getSourceFileFromPath } from "./rules/testUtils/tslint-palantir/utils";
 
 class ConsoleLogger {
     log(m: any) {
@@ -20,16 +19,16 @@ class ConsoleLogger {
     }
 }
 
-const MARKUP_FILE_EXTENSION = '.lint';
+const MARKUP_FILE_EXTENSION = ".lint";
 
-describe('tslint-ban-snippets tests', () => {
-    it('works if true is truthy', () => {
+describe("tslint-ban-snippets tests", () => {
+    it("works if true is truthy", () => {
         expect(true).toBeTruthy();
     });
 
-    const testDirectories = glob.sync('test/rules/**/tslint.json').map(path.dirname);
+    const testDirectories = glob.sync("test/rules/**/tslint.json").map(path.dirname);
 
-    describe('standard tslint test runner (NO code coverage!)', () => {
+    describe("standard tslint test runner (NO code coverage!)", () => {
         for (const testDirectory of testDirectories) {
             it(`should run tests at ${testDirectory}`, () => {
                 const result = runTest(testDirectory);
@@ -41,7 +40,7 @@ describe('tslint-ban-snippets tests', () => {
         }
     });
 
-    describe('custom tslint test runner (WITH code coverage, but cruder assertions)', () => {
+    describe("custom tslint test runner (WITH code coverage, but cruder assertions)", () => {
         for (const testDirectory of testDirectories) {
             describe(`tests at ${testDirectory}`, () => {
                 const filesToLint = glob.sync(
@@ -77,9 +76,9 @@ describe('tslint-ban-snippets tests', () => {
 });
 
 function readTslintConfigFromDirectory(testDirectory: string): any {
-    const pathToOptions = path.join(testDirectory, 'tslint.json');
+    const pathToOptions = path.join(testDirectory, "tslint.json");
 
-    const text = fs.readFileSync(pathToOptions, 'utf8');
+    const text = fs.readFileSync(pathToOptions, "utf8");
 
     return JSON.parse(text);
 }
@@ -94,6 +93,6 @@ function getOptionsForRule(ruleId: string, tslintConfig: any): IOptions {
         disabledIntervals: [],
         ruleArguments: ruleArgsTrimmed,
         ruleName: ruleId,
-        ruleSeverity: 'error'
+        ruleSeverity: "error"
     };
 }

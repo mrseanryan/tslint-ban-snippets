@@ -1,10 +1,10 @@
-import * as Lint from 'tslint';
-import * as ts from 'typescript';
+import * as Lint from "tslint";
+import * as ts from "typescript";
 
-import { ConfigFactory } from './config/ConfigFactory';
-import { BannedSnippet, BanSnippetsRuleConfig } from './model/BanSnippetsRuleConfig';
-import { BAN_SNIPPETS_RULE_ID } from './ruleIds';
-import { GeneralRuleUtils } from './utils/GeneralRuleUtils';
+import { ConfigFactory } from "./config/ConfigFactory";
+import { BannedSnippet, BanSnippetsRuleConfig } from "./model/BanSnippetsRuleConfig";
+import { BAN_SNIPPETS_RULE_ID } from "./ruleIds";
+import { GeneralRuleUtils } from "./utils/GeneralRuleUtils";
 
 export class Rule extends Lint.Rules.AbstractRule {
     apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
