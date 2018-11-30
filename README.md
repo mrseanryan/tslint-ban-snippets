@@ -1,4 +1,4 @@
-# tslint-ban-snippets readme
+# :no_entry_sign: tslint-ban-snippets readme
 
 A custom tslint rule to ban configurable lists of code snippets.
 
