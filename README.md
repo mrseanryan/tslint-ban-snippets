@@ -27,7 +27,16 @@ tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes
 
 No special dependencies - just `TypeScript` and of course `tslint`.
 
-## custom tslint rule
+## features
+
+- a custom tslint rule that can detect code snippets that are not desired
+- configurable for multiple code snippets
+- can include/exclude file paths
+- the error message can also be configured
+
+The rule is quite flexible and could potentially avoid having to create multiple custom tslint rules.
+
+### custom tslint rule
 
 The custom rule `tsl-ban-snippets` can be configured with small snippets of code that should NOT be used by developers.
 
@@ -41,7 +50,7 @@ The rule name is `tsl-ban-snippets` to avoid using the prefix `tslint-` which wa
 
 ### note: comparison to the standard `ban` rule
 
-There is standard tslint rule named `ban`. However its scope is quite limited - the `tsl-ban-snippets` rule applies to any statement in a TypeScript file, and so can be configured to detect most unwanted code snippets.
+There is a standard tslint rule named `ban`. However its scope is quite limited - the `tsl-ban-snippets` rule applies to any statement in a TypeScript file, and so can be configured to detect most unwanted code snippets.
 
 ## usage
 

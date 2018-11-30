@@ -1,0 +1,20 @@
+{
+    "rulesDirectory": "../../../../dist/lib",
+    "rules": {
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "snippets": ["it.only", "describe.only"],
+                        "message": "Do not enable only some tests."
+                    },
+                    {
+                        "snippets": ["it.skip", "describe.skip"],
+                        "message": "Do not skip tests."
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,43 @@
+describe("someTestSuite - OK", () => {
+    it("someTest - OK", () => {
+        // test code here
+    });
+
+    it.skip("someTest - skipped", () => {
+    ~~ [Do not skip tests. (tsl-ban-snippets)]
+
+        // test code here
+    });
+});
+
+describe.skip("someTestSuite - skip", () => {
+~~~~~~~~ [Do not skip tests. (tsl-ban-snippets)]
+    it.skip("someTest - OK", () => {
+    ~~ [Do not skip tests. (tsl-ban-snippets)]
+        // test code here
+    });
+
+    describe.skip("someTestSuite - skip", () => {
+    ~~~~~~~~ [Do not skip tests. (tsl-ban-snippets)]
+        it.skip("someTest - OK", () => {
+        ~~ [Do not skip tests. (tsl-ban-snippets)]
+            // test code here
+        });
+    });
+
+    // test inside a loop
+    [1,2].forEach(value => {
+    ~ [Do not skip tests. (tsl-ban-snippets)]
+        describe.skip("someTestSuite - skip", () => {
+        ~~~~~~~~ [Do not skip tests. (tsl-ban-snippets)]
+            it("someTest - OK", () => {
+                // test code here
+            });
+
+            it.skip("someTest - skip", () => {
+            ~~ [Do not skip tests. (tsl-ban-snippets)]
+                // test code here
+            });
+        });
+    });
+});

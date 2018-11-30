@@ -1,0 +1,38 @@
+describe("someTestSuite - OK", () => {
+    it("someTest - OK", () => {
+        // test code here
+    });
+
+    it.only("someTest - only", () => {
+    ~~ [Do not enable only some tests. (tsl-ban-snippets)]
+        // test code here
+    });
+});
+
+describe.only("someTestSuite - only", () => {
+~~~~~~~~ [Do not enable only some tests. (tsl-ban-snippets)]
+    it("someTest - OK", () => {
+        // test code here
+    });
+
+    it.only("someTest - only", () => {
+    ~~ [Do not enable only some tests. (tsl-ban-snippets)]
+        // test code here
+    });
+
+    // test inside a loop
+    [1,2].forEach(value => {
+    ~ [Do not enable only some tests. (tsl-ban-snippets)]
+        describe.only("someTestSuite - only", () => {
+        ~~~~~~~~ [Do not enable only some tests. (tsl-ban-snippets)]
+            it("someTest - OK", () => {
+                // test code here
+            });
+
+            it.only("someTest - only", () => {
+            ~~ [Do not enable only some tests. (tsl-ban-snippets)]
+                // test code here
+            });
+        });
+    });
+});
