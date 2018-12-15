@@ -10,8 +10,10 @@ tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes
 
 [![Travis](https://img.shields.io/travis/mrseanryan/tslint-ban-snippets.svg)](https://travis-ci.org/mrseanryan/tslint-ban-snippets)
 [![Coveralls](https://img.shields.io/coveralls/mrseanryan/tslint-ban-snippets.svg)](https://coveralls.io/github/mrseanryan/tslint-ban-snippets)
+[![node](https://img.shields.io/node/v/tslint-ban-snippets.svg)](https://nodejs.org)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/mrseanryan/tslint-ban-snippets.svg)](https://greenkeeper.io/)
+[![Dependencies](https://david-dm.org/mrseanryan/tslint-ban-snippets.svg)](https://david-dm.org/mrseanryan/tslint-ban-snippets)
 [![Dev Dependencies](https://david-dm.org/mrseanryan/tslint-ban-snippets/dev-status.svg)](https://david-dm.org/mrseanryan/tslint-ban-snippets?type=dev)
 
 [![npm Package](https://img.shields.io/npm/v/tslint-ban-snippets.svg?style=flat-square)](https://www.npmjs.org/package/tslint-ban-snippets)
@@ -29,10 +31,10 @@ No special dependencies - just `TypeScript` and of course `tslint`.
 
 ## features
 
-- a custom tslint rule that can detect code snippets that are not desired
-- configurable for multiple code snippets
-- can include/exclude file paths
-- the error message can also be configured
+-   a custom tslint rule that can detect code snippets that are not desired
+-   configurable for multiple code snippets
+-   can include/exclude file paths
+-   the error message can also be configured
 
 The rule is quite flexible and could potentially avoid having to create multiple custom tslint rules.
 
