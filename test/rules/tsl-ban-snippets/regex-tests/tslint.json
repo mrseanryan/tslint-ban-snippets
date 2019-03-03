@@ -1,0 +1,18 @@
+{
+    "rulesDirectory": "../../../../dist/lib",
+    "rules": {
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "regexSnippets": ["return void [reject|resolve]"]
+                    },
+                    {
+                        "regexSnippets": [".*debug.*"]
+                    }
+                ]
+            }
+        ]
+    }
+}
