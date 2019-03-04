@@ -4,11 +4,11 @@
 
 These steps will guide you through contributing to this project:
 
-- Fork the repo
-- Clone it and install dependencies
+-   Fork the repo
+-   Clone it and install dependencies
 
-		git clone https://github.com/YOUR-USERNAME/tslint-ban-snippets
-		npm install
+        		git clone https://github.com/YOUR-USERNAME/tslint-ban-snippets
+        		npm install
 
 Keep in mind that after running `npm install` the git repo is reset. So a good way to cope with this is to have a copy of the folder to push the changes, and the other to try them.
 
@@ -37,11 +37,23 @@ This project uses `semantic release`, so when committing its best to use this sc
 
 ### running unit tests
 
-locally: (minimal build)
+#### locally: (minimal build)
 
 `yarn build-and-test`
 
-before pushing: (saves time waiting for a failed build)
+#### locally, with watch:
+
+Run tests in watch mode:
+
+`yarn test:watch`
+
+In a second terminal, periodically run this to build the new code:
+
+`yarn build:minimal`
+
+#### before pushing
+
+This saves time waiting for a failed build:
 
 `yarn test:prod`
 
@@ -51,8 +63,8 @@ merging a feature branch into master: (after the build is green!)
 
 #### via github site (recommended)
 
-- create pull request for the feature branch
-- merge the pull request into master
+-   create pull request for the feature branch
+-   merge the pull request into master
 
 #### via command line (not recommended, as then need to delete branches)
 
@@ -64,6 +76,7 @@ git push
 ```
 
 ### releasing (from master branch)
+
 To release, simply push to github. This will automatically run builds, generate release notes on github, and release to npm!
 
 `git push`

@@ -1,0 +1,16 @@
+class MyClass
+{
+    doSomethingResolved() {
+        return new Promise( (resolve, reject) => {
+            resolve("error!");
+            return;
+        })
+    }
+
+    doSomethingRejected() {
+        return new Promise( (resolve, reject) => {
+            reject("error!");
+            return;
+        })
+    }
+}

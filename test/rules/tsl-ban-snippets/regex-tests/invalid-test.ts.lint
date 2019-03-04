@@ -1,0 +1,28 @@
+class MyClass
+{
+    doSomethingResolved() {
+        return new Promise( (resolve, reject) => {
+        ~~~~~~ [Do not use banned code 'return void [reject|resolve]'. (tsl-ban-snippets)]
+            return void resolve("error!");
+        })
+    }
+
+    doSomethingRejected() {
+        return new Promise( (resolve, reject) => {
+        ~~~~~~ [Do not use banned code 'return void [reject|resolve]'. (tsl-ban-snippets)]
+            return void reject("error!");
+        })
+
+        const aBinaryExpression = 100 + 200;
+
+        aCallExpression();
+    }
+
+    funWithBreakpoints() {
+        debugger;
+        ~~~~~~~~ [Do not use banned code '.*debug.*'. (tsl-ban-snippets)]
+
+        browser.debug();
+        ~~~~~~~ [Do not use banned code '.*debug.*'. (tsl-ban-snippets)]
+    }
+}

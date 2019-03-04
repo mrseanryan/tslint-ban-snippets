@@ -101,6 +101,24 @@ Example of how to ban the use of "return void":
     }
 ```
 
+Example that uses a regular expression:
+
+```json
+    "rules": {
+        // other rules here...
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "regexSnippets": ["return void [reject|resolve]"],
+                    }
+                ]
+            }
+        ]
+    }
+```
+
 Here is another example, with more options:
 
 ```json
@@ -115,6 +133,12 @@ Here is another example, with more options:
                         "message": "Please do not return void - instead place the return statement on the following line.",
                         "includePaths": [".ts", ".tsx"],
                         "excludePaths": ["itest"]
+                    },
+                    {
+                        "regexSnippets": ["return void [reject|resolve]"],
+                        "message": "Please do not return void - instead place the return statement on the following line.",
+                        "includePaths": [".ts", ".tsx"],
+                        "excludePaths": []
                     }
                 ]
             }

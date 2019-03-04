@@ -3,7 +3,9 @@ export type BanSnippetsRuleConfig = {
 };
 
 export type BannedSnippet = {
-    snippets: string[];
+    // either snippets OR regexSnippets is required
+    snippets?: string[];
+    regexSnippets?: string[];
     message?: string;
     includePaths?: string[];
     excludePaths?: string[];

@@ -54,23 +54,51 @@ class StatementsWalker extends Lint.RuleWalker {
         const relevantBanned = this.getRelevantBanned();
 
         relevantBanned.forEach(banned => {
-            const bannedCodeFound = banned.snippets.filter(
-                bannedSnippet => text.indexOf(bannedSnippet) >= 0
-            );
-
-            if (bannedCodeFound.length > 0) {
-                const failureNode = node.getFirstToken() || node;
-
-                this.addFailureAtNode(
-                    failureNode,
-                    GeneralRuleUtils.buildFailureString(
-                        banned.message ||
-                            `Do not use banned code '${bannedCodeFound.join("' or '")}'.`,
-                        BAN_SNIPPETS_RULE_ID
-                    )
-                );
+            if (banned.snippets) {
+                this.checkBannedSnippet(banned.snippets, text, node, banned.message);
+            } else if (banned.regexSnippets) {
+                this.checkRegexBannedSnippet(banned.regexSnippets, text, node, banned.message);
+            } else {
+                throw new Error("Invalid config? No snippets and no regex-snippets");
             }
         });
+    }
+
+    private checkBannedSnippet(snippets: string[], text: string, node: ts.Node, message?: string) {
+        const bannedCodeFound = snippets.filter(bannedSnippet => text.indexOf(bannedSnippet) >= 0);
+
+        if (bannedCodeFound.length > 0) {
+            this.failRule(node, bannedCodeFound, message);
+        }
+    }
+
+    private checkRegexBannedSnippet(
+        regexSnippets: string[],
+        text: string,
+        node: ts.Node,
+        message?: string
+    ) {
+        const bannedCodeFound = regexSnippets.filter(regexSnippet => {
+            const regex = new RegExp(regexSnippet);
+
+            return regex.test(text);
+        });
+
+        if (bannedCodeFound.length > 0) {
+            this.failRule(node, bannedCodeFound, message);
+        }
+    }
+
+    private failRule(node: ts.Node, bannedCodeFound: string[], message?: string) {
+        const failureNode = node.getFirstToken() || node;
+
+        this.addFailureAtNode(
+            failureNode,
+            GeneralRuleUtils.buildFailureString(
+                message || `Do not use banned code '${bannedCodeFound.join("' or '")}'.`,
+                BAN_SNIPPETS_RULE_ID
+            )
+        );
     }
 
     private getRelevantBanned(): BannedSnippet[] {
