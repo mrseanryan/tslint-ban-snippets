@@ -12,7 +12,6 @@ tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes
 [![Coveralls](https://img.shields.io/coveralls/mrseanryan/tslint-ban-snippets.svg)](https://coveralls.io/github/mrseanryan/tslint-ban-snippets)
 [![Size](https://packagephobia.now.sh/badge?p=tslint-ban-snippets)](https://packagephobia.now.sh/result?p=tslint-ban-snippets)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mrseanryan/tslint-ban-snippets.svg)](https://greenkeeper.io/)
 [![Dependencies](https://david-dm.org/mrseanryan/tslint-ban-snippets.svg)](https://david-dm.org/mrseanryan/tslint-ban-snippets)
 [![Dev Dependencies](https://david-dm.org/mrseanryan/tslint-ban-snippets/dev-status.svg)](https://david-dm.org/mrseanryan/tslint-ban-snippets?type=dev)
 
@@ -23,7 +22,6 @@ tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/mrseanryan)
 
 ## dependencies
 
