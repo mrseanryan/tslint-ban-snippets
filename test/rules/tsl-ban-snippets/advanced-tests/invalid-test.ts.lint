@@ -4,6 +4,7 @@ class MyClass
         return new Promise( (resolve, reject) => {
         ~~~~~~ [Please do not return void - instead place the return statement on the following line. (tsl-ban-snippets)]
             return void resolve("error!");
+            ~~~~~~                         [Please do not return void - instead place the return statement on the following line. (tsl-ban-snippets)]
         })
     }
 
@@ -11,6 +12,7 @@ class MyClass
         return new Promise( (resolve, reject) => {
         ~~~~~~ [Please do not return void - instead place the return statement on the following line. (tsl-ban-snippets)]
             return void reject("error!");
+            ~~~~~~                        [Please do not return void - instead place the return statement on the following line. (tsl-ban-snippets)]
         })
 
         const aBinaryExpression = 100 + 200;

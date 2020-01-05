@@ -2,54 +2,13 @@
     "name": "tslint-ban-snippets",
     "version": "0.0.0-semantically-released",
     "description": "A custom tslint rule to ban configurable lists of code snippets.",
-    "keywords": [
-        "tslint",
-        "ban",
-        "snippets",
-        "static code analysis",
-        "checker",
-        "analysis",
-        "disabled tests",
-        "static code analysis",
-        "code analysis"
-    ],
-    "main": "dist/tslint-ban-snippets.umd.js",
-    "module": "dist/tslint-ban-snippets.es5.js",
+    "main": "dist/lib/tslint-ban-snippets.js",
     "typings": "dist/types/tslint-ban-snippets.d.ts",
     "files": [
         "dist"
     ],
     "author": "Sean Ryan <mr.sean.ryan(at)gmail.com>",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mrseanryan/tslint-ban-snippets.git"
-    },
     "license": "MIT",
-    "engines": {
-        "node": ">=8.3.0"
-    },
-    "scripts": {
-        "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-        "lint:local": "tslint  --project tsconfig.json -t codeFrame",
-        "prebuild": "rimraf dist",
-        "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-        "build:minimal": "tsc --module commonjs",
-        "build-and-test": "yarn build:minimal && yarn test",
-        "start": "rollup -c rollup.config.ts -w",
-        "test": "yarn tsl:test && jest --coverage",
-        "test:watch": "jest --coverage --watch",
-        "test:prod": "npm run build && npm run lint && npm run test -- --no-cache",
-        "tsl:build-and-test": "yarn build && yarn tsl:test",
-        "tsl:test": "tslint --test test/rules/**/tslint.json",
-        "deploy-docs": "ts-node tools/gh-pages-publish",
-        "report-coverage": "cat ./coverage/lcov.info | coveralls",
-        "commit": "git-cz",
-        "semantic-release": "semantic-release",
-        "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-        "precommit": "lint-staged",
-        "travis-deploy-once": "travis-deploy-once",
-        "prepush": "npm run test:prod"
-    },
     "lint-staged": {
         "{src,test}/**/*.ts": [
             "prettier --write",
@@ -63,8 +22,12 @@
     },
     "jest": {
         "transform": {
-            ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+            ".(ts|tsx)": "ts-jest"
         },
+        "transformIgnorePatterns": [
+            "^.+\\.js$",
+            "^.+\\.json$"
+        ],
         "testEnvironment": "node",
         "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
         "moduleFileExtensions": [
@@ -74,7 +37,8 @@
         ],
         "coveragePathIgnorePatterns": [
             "/node_modules/",
-            "/test/"
+            "/test/",
+            "/testHarness/"
         ],
         "coverageThreshold": {
             "global": {
@@ -86,6 +50,10 @@
         },
         "collectCoverageFrom": [
             "src/*.{js,ts}"
+        ],
+        "testPathIgnorePatterns": [
+            "/testHarness/",
+            "/node_modules/"
         ]
     },
     "prettier": {
@@ -98,42 +66,80 @@
         ]
     },
     "devDependencies": {
-        "@commitlint/cli": "^7.1.2",
-        "@commitlint/config-conventional": "^7.1.2",
-        "@types/jest": "^23.3.2",
-        "@types/node": "^10.11.0",
-        "colors": "^1.3.2",
-        "commitizen": "^3.0.0",
-        "coveralls": "^3.0.2",
-        "cross-env": "^5.2.0",
-        "cz-conventional-changelog": "^2.1.0",
-        "husky": "^1.0.1",
-        "jest": "^23.6.0",
-        "jest-config": "^23.6.0",
-        "lint-staged": "^8.0.0",
+        "@commitlint/cli": "^8.2.0",
+        "@commitlint/config-conventional": "^8.2.0",
+        "@types/jest": "^24.0.25",
+        "@types/node": "^13.1.2",
+        "colors": "^1.4.0",
+        "commitizen": "^4.0.3",
+        "coveralls": "^3.0.9",
+        "cross-env": "^6.0.3",
+        "cz-conventional-changelog": "^3.0.2",
+        "husky": "^3.1.0",
+        "jest": "^24.9.0",
+        "jest-config": "^24.9.0",
+        "lint-staged": "^9.5.0",
         "lodash.camelcase": "^4.3.0",
-        "prettier": "^1.14.3",
+        "prettier": "^1.19.1",
         "prompt": "^1.0.0",
-        "replace-in-file": "^3.4.2",
-        "rimraf": "^2.6.2",
-        "rollup": "^0.67.0",
-        "rollup-plugin-commonjs": "^9.1.8",
-        "rollup-plugin-json": "^3.1.0",
-        "rollup-plugin-node-resolve": "^3.4.0",
-        "rollup-plugin-sourcemaps": "^0.4.2",
-        "rollup-plugin-typescript2": "^0.18.0",
-        "semantic-release": "^15.12.3",
-        "travis-deploy-once": "^5.0.9",
-        "ts-jest": "^23.10.2",
-        "ts-node": "^7.0.1",
-        "tslint": "^5.11.0",
-        "tslint-config-prettier": "^1.15.0",
+        "replace-in-file": "^5.0.2",
+        "rimraf": "^3.0.0",
+        "semantic-release": "^15.14.0",
+        "ts-jest": "^24.2.0",
+        "ts-node": "^8.5.4",
+        "tslint": "^5.20.1",
+        "tslint-config-prettier": "^1.18.0",
         "tslint-config-standard-sr": "^8.2.0",
-        "typedoc": "^0.13.0",
-        "typescript": "^3.0.3"
+        "typedoc": "^0.15.6",
+        "typescript": "^3.7.4"
     },
     "peerDependencies": {
         "tslint": ">=5.9.1 || >=^5.11.0",
         "typescript": ">=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >=3.1.0-dev || >=3.2.0-dev || >=3.3.0-dev"
+    },
+    "engines": {
+        "node": ">=10.18.0"
+    },
+    "scripts": {
+        "clean": "rm -rf dist/",
+        "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+        "lint:local": "tslint  --project tsconfig.json -t codeFrame",
+        "prebuild": "rimraf dist",
+        "build": "tsc --module commonjs && typedoc --out docs --target es6 --theme minimal --mode file src",
+        "build:minimal": "tsc --module commonjs",
+        "start": "yarn clean && yarn build && yarn test && yarn lint",
+        "test": "yarn build:minimal && yarn lint && yarn tsl:test && yarn test:unit",
+        "test:unit": "jest --coverage",
+        "test:watch": "jest --coverage --watch",
+        "test:prod": "yarn build && yarn lint && yarn test -- --no-cache",
+        "tsl:build-and-test": "yarn build && yarn tsl:test",
+        "tsl:test": "tslint --test test/rules/**/tslint.json",
+        "tsl:test-one": "tslint --test test/rules/tsl-ban-snippets/basic-tests/**/tslint.json",
+        "deploy-docs": "ts-node tools/gh-pages-publish",
+        "report-coverage": "cat ./coverage/lcov.info | coveralls",
+        "commit": "git-cz",
+        "semantic-release": "semantic-release",
+        "semantic-release-prepare": "ts-node tools/semantic-release-prepare"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mrseanryan/tslint-ban-snippets.git"
+    },
+    "keywords": [
+        "tslint",
+        "ban",
+        "snippets",
+        "static code analysis",
+        "checker",
+        "analysis",
+        "disabled tests",
+        "static code analysis",
+        "code analysis"
+    ],
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "yarn test:prod"
+        }
     }
 }
