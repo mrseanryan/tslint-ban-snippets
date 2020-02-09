@@ -13,7 +13,6 @@ tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes
 [![Size](https://packagephobia.now.sh/badge?p=tslint-ban-snippets)](https://packagephobia.now.sh/result?p=tslint-ban-snippets)
 
 [![Dependencies](https://david-dm.org/mrseanryan/tslint-ban-snippets.svg)](https://david-dm.org/mrseanryan/tslint-ban-snippets)
-[![Dev Dependencies](https://david-dm.org/mrseanryan/tslint-ban-snippets/dev-status.svg)](https://david-dm.org/mrseanryan/tslint-ban-snippets?type=dev)
 
 [![npm Package](https://img.shields.io/npm/v/tslint-ban-snippets.svg?style=flat-square)](https://www.npmjs.org/package/tslint-ban-snippets)
 [![NPM Downloads](https://img.shields.io/npm/dm/tslint-ban-snippets.svg)](https://npmjs.org/package/tslint-ban-snippets)
