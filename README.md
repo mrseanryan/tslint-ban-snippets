@@ -8,7 +8,7 @@ examples: "return void reject", "it.only", "debugger".
 
 tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes (Linux, Mac, Windows) for at least one major product.
 
-[![Travis](https://img.shields.io/travis/mrseanryan/tslint-ban-snippets.svg)](https://travis-ci.org/mrseanryan/tslint-ban-snippets)
+[![Build Status](https://travis-ci.com/mrseanryan/tslint-ban-snippets.svg?branch=master)](https://travis-ci.com/mrseanryan/tslint-ban-snippets)
 [![Coveralls](https://img.shields.io/coveralls/mrseanryan/tslint-ban-snippets.svg)](https://coveralls.io/github/mrseanryan/tslint-ban-snippets)
 [![Size](https://packagephobia.now.sh/badge?p=tslint-ban-snippets)](https://packagephobia.now.sh/result?p=tslint-ban-snippets)
 
