@@ -1,5 +1,4 @@
 import * as fs from "fs";
-import * as glob from "glob";
 import * as path from "path";
 import { IOptions } from "tslint";
 import { consoleTestResultHandler, runTest } from "tslint/lib/test";
@@ -8,6 +7,8 @@ import * as parse from "tslint/lib/verify/parse";
 import { BAN_SNIPPETS_RULE_ID } from "../src/ruleIds";
 import { Rule as BanSnippetsRule } from "../src/tslint-ban-snippets";
 import { getSourceFileFromPath } from "./rules/testUtils/tslint-palantir/utils";
+
+const glob = require("glob"); // workaround when running 'yarn test'
 
 class ConsoleLogger {
     log(m: any) {
@@ -93,6 +94,6 @@ function getOptionsForRule(ruleId: string, tslintConfig: any): IOptions {
         disabledIntervals: [],
         ruleArguments: ruleArgsTrimmed,
         ruleName: ruleId,
-        ruleSeverity: "error"
+        ruleSeverity: "error",
     };
 }
