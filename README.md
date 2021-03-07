@@ -6,7 +6,9 @@ examples: "return void reject", "it.only", "debugger".
 
 ## status - stable
 
-tslint-ban-snippets is stable and in use every day in CI builds and on dev boxes (Linux, Mac, Windows) for at least one major product.
+**tslint-ban-snippets** is stable and in use every day in CI builds and on dev boxes (Linux, Mac, Windows) for at least one major product.
+
+**tslint-ban-snippets** WILL be maintained, as long as talint is around. BUT recommend switching to the `eslint` equivalent, [eslint-plugin-ts-ban-snippets](https://github.com/mrseanryan/eslint-plugin-ts-ban-snippets).
 
 [![Build Status](https://travis-ci.com/mrseanryan/tslint-ban-snippets.svg?branch=master)](https://travis-ci.com/mrseanryan/tslint-ban-snippets)
 [![Coveralls](https://img.shields.io/coveralls/mrseanryan/tslint-ban-snippets.svg)](https://coveralls.io/github/mrseanryan/tslint-ban-snippets)
@@ -63,7 +65,7 @@ npm install tslint-ban-snippets
 
 ### 2 Configure tslint to pick up the custom rule
 
-Edit your `tslint.json` to have an entry `"rulesDirectory"` that points to tslint-ban-snippets.
+Edit your `tslint.json` to have an entry `"rulesDirectory"` that points to **tslint-ban-snippets**.
 
 Normally this would be like:
 
