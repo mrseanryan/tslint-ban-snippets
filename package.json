@@ -105,7 +105,7 @@
         "lint": "tslint  -p tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
         "lint:local": "tslint  -p tsconfig.json -t codeFrame",
         "prebuild": "rimraf dist",
-        "build": "tsc --module commonjs && typedoc --out docs --theme minimal src",
+        "build": "tsc --module commonjs && typedoc --out docs src",
         "build:minimal": "tsc --module commonjs",
         "start": "yarn clean && yarn build && yarn test && yarn lint",
         "test": "yarn build:minimal && yarn lint && yarn tsl:test && yarn test:unit",
