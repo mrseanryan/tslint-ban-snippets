@@ -127,6 +127,28 @@ Example of how to ban the use of "return void":
     }
 ```
 
+Example to ban the disabling of tests:
+
+```json
+    "rules": {
+        "tsl-ban-snippets": [
+            true,
+            {
+                "banned": [
+                    {
+                        "snippets": ["it.only", "describe.only"],
+                        "message": "Do not enable only some tests."
+                    },
+                    {
+                        "snippets": ["it.skip", "describe.skip"],
+                        "message": "Do not skip tests."
+                    }
+                ]
+            }
+        ]
+    }
+```
+
 Example that uses a regular expression, to ban both `return void reject` and `return void resolve`:
 
 ```json
