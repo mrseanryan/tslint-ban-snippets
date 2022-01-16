@@ -8,7 +8,7 @@ examples: "return void reject", "it.only", "debugger".
 
 **tslint-ban-snippets** is stable and in use every day in CI builds and on dev boxes (Linux, Mac, Windows) for at least one major product.
 
-**tslint-ban-snippets** WILL be maintained, as long as talint is around. BUT recommend switching to the `eslint` equivalent, [eslint-plugin-ts-ban-snippets](https://github.com/mrseanryan/eslint-plugin-ts-ban-snippets).
+**tslint-ban-snippets** WILL be maintained, as long as tslint is around. BUT recommend switching to the `eslint` equivalent, [eslint-plugin-ts-ban-snippets](https://github.com/mrseanryan/eslint-plugin-ts-ban-snippets).
 
 [![Build Status](https://travis-ci.com/mrseanryan/tslint-ban-snippets.svg?branch=master)](https://travis-ci.com/mrseanryan/tslint-ban-snippets)
 [![Coveralls](https://img.shields.io/coveralls/mrseanryan/tslint-ban-snippets.svg)](https://coveralls.io/github/mrseanryan/tslint-ban-snippets)
@@ -73,7 +73,32 @@ Normally this would be like:
 {
     "rulesDirectory": "node_modules/tslint-ban-snippets/dist/lib",
     "rules": {
-        // tslint rules here...
+        "tsl-ban-snippets": [
+            // custom banned snippets here...
+        ]
+    }
+}
+```
+
+Alternatively, you can store the custom rules in a separate file:
+
+`tslint.json:`
+
+```json
+{
+    "extends": ["./tslint.tslint-ban-snippets.json"],
+    // ...
+}
+
+`tslint.tslint-ban-snippets.json:`
+
+```json
+{
+    "rulesDirectory": "node_modules/tslint-ban-snippets/dist/lib",
+    "rules": {
+        "tsl-ban-snippets": [
+            // custom banned snippets here...
+        ]
     }
 }
 ```
@@ -102,7 +127,7 @@ Example of how to ban the use of "return void":
     }
 ```
 
-Example that uses a regular expression:
+Example that uses a regular expression, to ban both `return void reject` and `return void resolve`:
 
 ```json
     "rules": {
@@ -120,7 +145,9 @@ Example that uses a regular expression:
     }
 ```
 
-Here is another example, with more options:
+Here is another example, with more options.
+
+This example bans `return void` aswell as `return void reject` and `return void resolve`.
 
 ```json
     "rules": {
@@ -149,7 +176,9 @@ Here is another example, with more options:
 
 For more examples of how to configure, please see [tslint.json](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/tslint.tslint-ban-snippets.json).
 
-For working examples, please see the [unit tests](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/test/rules).
+For working tests, please see the [unit tests](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/test/rules).
+
+For a real code example, see the [test harness](https://github.com/mrseanryan/tslint-ban-snippets/tree/master/testHarness/simple-typescript-project) and in particular the [config file](https://github.com/mrseanryan/tslint-ban-snippets/blob/master/testHarness/simple-typescript-project/tslint.tslint-ban-snippets.json).
 
 ## sites
 
